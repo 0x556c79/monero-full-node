@@ -15,7 +15,7 @@ RUN curl https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.t
   tar -xjvf monero-linux-x64-v$MONERO_VERSION.tar.bz2 &&\
   rm monero-linux-x64-v$MONERO_VERSION.tar.bz2 &&\
   cp ./monero-v$MONERO_VERSION/monerod . &&\
-  rm -r monero-*
+  rm -r monero-* &&\
   wget -P /root/.bitmonero/ https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf
 
 # blockchain loaction
