@@ -3,25 +3,22 @@
 docker image to run a monero full network node
 
 ## How To Use
-
-``` 
+```
 docker run -td \
---restart=always \
 -v /var/data/blockchain-xmr:/root/.bitmonero \
 -p 18080:18080 \
 -p 18081:18081 \
 --name=monerod \
-kannix/monero-full-node
+r4p70r90/monero-full-node
 ```
 
 ## Updates
-Manual Way
+Manual way:
 ```
 docker stop monerod
 docker rm monerod
-docker pull kannix/monero-full-node
+docker pull r4p70r90/monero-full-node
 ```
 Then launch using the "how to use" command above
-
-Automatic way
-https://github.com/v2tec/watchtower
+    
+Automatic way: [v2tec/watchtower](https://github.com/v2tec/watchtower)
