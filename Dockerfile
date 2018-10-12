@@ -24,4 +24,4 @@ VOLUME /root/.bitmonero
 EXPOSE 18080 18081
 
 ENTRYPOINT ["./monerod"]
-CMD ["--config-file arg=/root/.bitmonero/bitmonero.conf"]
+CMD ["--config-file=/root/.bitmonero/bitmonero.conf"]
