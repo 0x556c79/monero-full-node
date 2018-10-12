@@ -3,7 +3,7 @@ FROM ubuntu:16.04
 
 ENV MONERO_VERSION=0.13.0.2 MONERO_SHA256=a59fc0fffb325b4f92a5b500438bf340ddbf78e91581eb4df95ad2d5e5fb42a8
 
-RUN apt-get update && apt-get install -y curl bzip2 libpcsclite-dev
+RUN apt-get update && apt-get install -y curl wget bzip2 libpcsclite-dev
 
 # RUN useradd -ms /bin/bash monero
 # USER monero
