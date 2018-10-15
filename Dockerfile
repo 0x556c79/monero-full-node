@@ -24,4 +24,4 @@ VOLUME /root/.bitmonero
 EXPOSE 18080:18080 18089:18089
 
 ENTRYPOINT ["./monerod"]
-CMD ["--config-file=/root/.bitmonero/bitmonero.conf --confirm-external-bind --check-updates disabled"]
+CMD ["--config-file=/root/.bitmonero/bitmonero.conf" "--confirm-external-bind" "--check-updates disabled"]
