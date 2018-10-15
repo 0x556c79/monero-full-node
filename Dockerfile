@@ -21,7 +21,7 @@ RUN curl https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.t
 # blockchain loaction
 VOLUME /root/.bitmonero
 
-EXPOSE 18080 18081
+EXPOSE 18080:18080 18089:18089
 
 ENTRYPOINT ["./monerod"]
-CMD ["--config-file=/root/.bitmonero/bitmonero.conf"]
+CMD ["--config-file=/root/.bitmonero/bitmonero.conf --confirm-external-bind --check-updates disabled"]
