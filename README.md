@@ -1,6 +1,6 @@
 # monero-full-node
 
-docker image to run a monero full network node
+docker image to run a monero full network node with .conf file for configuration
 
 # October 2018: Breaking Change
 **warning**  
