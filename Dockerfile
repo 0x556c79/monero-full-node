@@ -20,8 +20,8 @@ RUN useradd -ms /bin/bash monero
 USER monero
 WORKDIR /home/monero
 
-COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
-RUN wget -P /home/monero/.bitmonero/ https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf
+COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod &&\
+RUN wget -P /home/monero/.bitmonero/ https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf &&\
 
 # blockchain loaction
 VOLUME /home/monero/.bitmonero
