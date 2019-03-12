@@ -3,8 +3,7 @@ FROM ubuntu:18.04 AS build
 
 ENV MONERO_VERSION=0.14.0.2 MONERO_SHA256=4dd5cd9976eda6b33b16821e79e671527b78a1c9bfb3d973efe84b824642dd21
 
-RUN apt-get update && apt-get install -y apt-utils &&\
-    apt-get install -y curl bzip2 wget
+RUN apt-get update && apt-get install -y curl bzip2
 
 WORKDIR /root
 
@@ -22,7 +21,7 @@ USER monero
 WORKDIR /home/monero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
-RUN wget -P /home/monero/.bitmonero/ https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf
+RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
 
 # blockchain loaction
 VOLUME /home/monero/.bitmonero
