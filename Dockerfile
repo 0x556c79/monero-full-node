@@ -21,9 +21,10 @@ RUN apt-get update && apt-get install -y curl
 RUN useradd -ms /bin/bash monero
 USER monero
 WORKDIR /home/monero
-RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
+
+RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
 
 VOLUME /home/monero/.bitmonero
 
