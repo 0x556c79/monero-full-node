@@ -13,17 +13,16 @@ RUN curl https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.t
   rm monero-linux-x64-v$MONERO_VERSION.tar.bz2 &&\
   cp ./monero-v$MONERO_VERSION/monerod . &&\
   rm -r monero-* &&\
-  curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
   
 FROM ubuntu:18.04
 
 RUN useradd -ms /bin/bash monero
 USER monero
 WORKDIR /home/monero
+RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
 
-# blockchain loaction
 VOLUME /home/monero/.bitmonero
 
 EXPOSE 18080:18080 18089:18089
