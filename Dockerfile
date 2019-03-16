@@ -23,12 +23,8 @@ USER monero
 WORKDIR /home/monero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
-
-RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
-
 VOLUME /home/monero/.bitmonero
-
+RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
 EXPOSE 18080:18080 18089:18089
-
 ENTRYPOINT ["./monerod"]
 CMD ["--config-file=/home/monero/.bitmonero/bitmonero.conf" "--confirm-external-bind" "--check-updates disabled"]
