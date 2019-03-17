@@ -16,15 +16,19 @@ RUN curl https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.t
   
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install -y curl
+RUN apt-get install -y wget
 
 RUN useradd -ms /bin/bash monero
 USER monero
 WORKDIR /home/monero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
+
 VOLUME /home/monero/.bitmonero
-RUN curl https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf > /home/monero/.bitmonero
+
+RUN wget -P /home/monero/.bitmonero/ https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf
+
 EXPOSE 18080:18080 18089:18089
+
 ENTRYPOINT ["./monerod"]
 CMD ["--config-file=/home/monero/.bitmonero/bitmonero.conf" "--confirm-external-bind" "--check-updates disabled"]
