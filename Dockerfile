@@ -16,7 +16,7 @@ RUN curl https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.t
   
 FROM ubuntu:18.04
 
-RUN apt-get install -y wget
+RUN apt-get update && apt-get install -y wget
 
 RUN useradd -ms /bin/bash monero
 USER monero
