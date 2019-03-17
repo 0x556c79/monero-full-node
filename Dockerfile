@@ -12,6 +12,7 @@ RUN curl https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.t
   tar -xjvf monero-linux-x64-v$MONERO_VERSION.tar.bz2 &&\
   rm monero-linux-x64-v$MONERO_VERSION.tar.bz2 &&\
   cp ./monero-v$MONERO_VERSION/monerod . &&\
+  wget -P . https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf
   rm -r monero-*
   
 FROM ubuntu:18.04
@@ -23,11 +24,7 @@ USER monero
 WORKDIR /home/monero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
-
 VOLUME /home/monero/.bitmonero
-
-RUN wget -P /home/monero/.bitmonero/ https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf
-
 EXPOSE 18080:18080 18089:18089
 
 ENTRYPOINT ["./monerod"]
