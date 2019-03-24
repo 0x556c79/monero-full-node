@@ -16,9 +16,9 @@ FROM ubuntu:18.04
 RUN useradd -ms /bin/bash monero
 USER monero
 WORKDIR /home/monero
-ADD --chown=monero:monero https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf /home/monero/.bitmonero
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
 VOLUME /home/monero/.bitmonero
+ADD --chown=monero:monero https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf /home/monero/.bitmonero
 EXPOSE 18080:18080 18089:18089
 ENTRYPOINT ["./monerod"]
 CMD ["--config-file=/home/monero/.bitmonero/bitmonero.conf"]
