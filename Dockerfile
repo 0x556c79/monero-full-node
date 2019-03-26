@@ -14,8 +14,6 @@ RUN wget https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitm
   
 FROM ubuntu:18.04
 
-RUN apt-get update && apt-get install nano
-
 RUN useradd -ms /bin/bash monero
 USER monero
 WORKDIR /home/monero
