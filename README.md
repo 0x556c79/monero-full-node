@@ -14,7 +14,7 @@ this can be fixed with the following steps
 * change the owner of the volume to monero user `docker run -v xmrchain:/home/monero -t --rm --name=monerod -u root --entrypoint=/bin/chown r4p70r90/monero-full-node -R monero:monero`
 * start the container `docker run -tid --restart=always -v xmrchain:/home/monero -p 18080:18080 -p 18081:18081 --name=monerod r4p70r90/monero-full-node`
 
-**Hint:** keep in mind that you have to adapt your volume bindings to your own configuration e.g. if you followed the older version of this readme you have to use: `-v /var/data/blockchain-xmr:/home/monero` instead of `-v xmrchain:/home/monero/.bitmonero`
+**Hint:** keep in mind that you have to adapt your volume bindings to your own configuration e.g. if you followed the older version of this readme you have to use: `-v /var/data/blockchain-xmr:/home/monero` instead of `-v xmrchain:/home/monero/`
 
 # Usage
 
@@ -52,4 +52,4 @@ Automatic way: [v2tec/watchtower](https://github.com/v2tec/watchtower)
 
 # Donations
 
-I am supporting this image in my spare time and would be very happy about some donations to keep this going. You can support me by sending some XMR to: `47VCQgBjmLd1oMGKGcbVbzM1ND1qUWzs7Nonxip9cuNraJwVxDWQb1nU5tPfgYx4xLftnPiR1zPcgZBi4Mmoj3at39C7qp9`
+I am supporting this image in my spare time and would be very happy about some donations to keep this going. You can support me by sending some XMR to: `86fbBwa9XfZAHqMBA7TowSGb5oZqnBgUFJ8Zxh2WchjHWKw6Xx8zpwQiA4fFZVjYWAdE2jCes8WMujZEjYUwDomtVKTfvkb`
