@@ -1,7 +1,7 @@
 # Usage: docker run --restart=always -v /var/data/blockchain-xmr:/home/monero/ -p 18080:18080 -p 18089:18089 --name=monerod -td r4p70r90/monero-full-node
 FROM ubuntu:18.04 AS build
 
-ENV MONERO_VERSION=0.14.0.2 MONERO_SHA256=4dd5cd9976eda6b33b16821e79e671527b78a1c9bfb3d973efe84b824642dd21
+ENV MONERO_VERSION=0.14.1.0 MONERO_SHA256=4dd5cd9976eda6b33b16821e79e671527b78a1c9bfb3d973efe84b824642dd21
 RUN apt-get update && apt-get install -y curl bzip2 wget
 WORKDIR /root
 RUN wget https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitmonero.conf &&\
