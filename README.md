@@ -53,3 +53,4 @@ Automatic way: [v2tec/watchtower](https://github.com/v2tec/watchtower)
 # Donations
 
 I am supporting this image in my spare time and would be very happy about some donations to keep this going. You can support me by sending some XMR to: `86fbBwa9XfZAHqMBA7TowSGb5oZqnBgUFJ8Zxh2WchjHWKw6Xx8zpwQiA4fFZVjYWAdE2jCes8WMujZEjYUwDomtVKTfvkb`
+![alt text](https://docs.google.com/uc?export=download&id=13WVR-7erh2aHe0Z7L3mAPoWKPu3G_uSV)
