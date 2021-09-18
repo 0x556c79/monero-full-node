@@ -10,7 +10,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu:20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -21,7 +21,9 @@ jobs:
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag r4p70r/monero-full-node:$(date +%s)
+      env:
+        MONERO_VERSION: v0.17.2.3
+      run: docker build . --file Dockerfile --tag r4p70r/monero-full-node:$MONERO_VERSION_$(date +%s)
       
     - name: docker Push
       run: docker push ${{secrets.DOCKER_USER}}/monero-full-node
