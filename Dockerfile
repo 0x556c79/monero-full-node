@@ -12,7 +12,7 @@ RUN wget https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitm
   cp ./monero-v$MONERO_VERSION/monerod . &&\  
   rm -r monero-*
   
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 RUN useradd -ms /bin/bash monero
 USER monero
