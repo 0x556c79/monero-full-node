@@ -4,7 +4,7 @@ docker image to run a monero full network node with .conf file for configuration
 
 # Usage
 
-`docker run -tid --restart=always -v xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18088:18088 -p 18089:18089 --name=monerod r4p70r/monero-full-node`
+`docker run -tid --restart=always -v xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18089:18089 --name=monerod r4p70r/monero-full-node`
 
 ## Updates
 Manual way:
