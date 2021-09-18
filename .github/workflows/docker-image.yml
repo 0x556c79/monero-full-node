@@ -18,11 +18,10 @@ jobs:
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-        MONERO_VERSION: ${{secrets.MONERO_VERSION}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag 0x556c79/monero-full-node:$MONERO_VERSION_$(date +%s)
+      run: docker build . --file Dockerfile --tag 0x556c79/monero-full-node:latest
       
     - name: docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/monero-full-node:$MONERO_VERSION_$(date +%s)
+      run: docker push ${{secrets.DOCKER_USER}}/monero-full-node:latest
