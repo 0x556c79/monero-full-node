@@ -26,4 +26,4 @@ jobs:
       run: docker build . --file Dockerfile --tag r4p70r/monero-full-node:$MONERO_VERSION_$(date +%s)
       
     - name: docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/monero-full-node
+      run: docker push ${{secrets.DOCKER_USER}}/monero-full-node:$MONERO_VERSION_$(date +%s)
