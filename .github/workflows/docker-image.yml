@@ -22,4 +22,4 @@ jobs:
     - name: Build the Docker image
       run: docker build -t r4p70r/monero-full-node:latest -t r4p70r/monero-full-node:v0.17.2.3 .
     - name: docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/monero-full-node
+      run: docker push --all-tags ${{secrets.DOCKER_USER}}/monero-full-node
