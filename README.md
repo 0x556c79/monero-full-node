@@ -11,8 +11,8 @@ If you simply upgrade without following the next steps you will run into this er
 this can be fixed with the following steps  
 
 * stop and remove the current container: `docker stop monerod && docker rm monerod`
-* change the owner of the volume to monero user `docker run -v xmrchain:/home/monero -t --rm --name=monerod -u root --entrypoint=/bin/chown r4p70r/monero-full-node -R monero:monero`
-* start the container `docker run -tid --restart=always -v xmrchain:/home/monero -p 18080:18080 -p 18081:18081 --name=monerod r4p70r/monero-full-node`
+* change the owner of the volume to monero user `docker run -v xmrchain:/home/monero/.bitmonero -t --rm --name=monerod -u root --entrypoint=/bin/chown r4p70r/monero-full-node -R monero:monero`
+* start the container `docker run -tid --restart=always -v xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18081:18081 --name=monerod r4p70r/monero-full-node`
 
 **Hint:** keep in mind that you have to adapt your volume bindings to your own configuration e.g. if you followed the older version of this readme you have to use: `-v /var/data/blockchain-xmr:/home/monero` instead of `-v xmrchain:/home/monero/`
 
