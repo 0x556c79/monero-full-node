@@ -1,4 +1,4 @@
-# Usage: docker run -tid --restart=always -v /var/data/xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18081:18081 --name=monerod -td r4p70r/monero-full-node
+# Usage: docker run -tid --restart=always -v /var/data/xmrchain:/home/monero -p 18080:18080 -p 18081:18081 --name=monerod -td r4p70r/monero-full-node
 FROM ubuntu:20.04 AS build
 
 ENV MONERO_VERSION=0.17.2.3 MONERO_SHA256=8069012ad5e7b35f79e35e6ca71c2424efc54b61f6f93238b182981ba83f2311
@@ -26,7 +26,7 @@ COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
 COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/.bitmonero/bitmonero.conf
 
 # blockchain location
-VOLUME /home/monero/.bitmonero
+VOLUME /home/monero
 
 EXPOSE 18080:18080 18081:18081
 
