@@ -28,8 +28,8 @@ COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/.bitmo
 # blockchain location
 VOLUME /home/monero/.bitmonero
 
-EXPOSE 18080:18080 18088:18088 18089:18089
+EXPOSE 18080:18080 18089:18089
 
 
 ENTRYPOINT ["./monerod"]
-CMD ["--non-interactive --config-file=/home/monero/.bitmonero/bitmonero.conf"]
+CMD ["--non-interactive", "--config-file=/home/monero/.bitmonero/bitmonero.conf"]
