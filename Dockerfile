@@ -4,7 +4,7 @@ FROM ubuntu:20.04 AS build
 ENV MONERO_VERSION=0.17.2.3 MONERO_SHA256=8069012ad5e7b35f79e35e6ca71c2424efc54b61f6f93238b182981ba83f2311
 
 
-RUN apt-get update && apt-get install -y curl bzip2 wget
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl bzip2 wget && apt-get autoremove --purge -y
 
 WORKDIR /root
 
@@ -18,7 +18,7 @@ RUN wget https://raw.githubusercontent.com/r4p70r90/monero-full-node/master/bitm
   
 FROM ubuntu:20.04
 
-RUN useradd -ms /bin/bash monero && mkdir -p /home/monero/.bitmonero && chown -R monero:monero /home/monero/.bitmonero
+RUN useradd -ms /bin/bash monero && mkdir -p /home/monero/.bitmonero && chown -R monero:monero /home/monero
 USER monero
 WORKDIR /home/monero
 
