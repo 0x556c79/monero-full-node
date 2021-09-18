@@ -22,4 +22,6 @@ Automatic way: [v2tec/watchtower](https://github.com/v2tec/watchtower)
 I am supporting this image in my spare time and would be very happy about some donations to keep this going.
 You can support me by sending some XMR to: `86fbBwa9XfZAHqMBA7TowSGb5oZqnBgUFJ8Zxh2WchjHWKw6Xx8zpwQiA4fFZVjYWAdE2jCes8WMujZEjYUwDomtVKTfvkb`
 
+<p align="center">
 ![Donation](https://docs.google.com/uc?export=download&id=13Z0oUgUKZsC6HCo69BHS5b9mvffT6QRG)
+</p>
