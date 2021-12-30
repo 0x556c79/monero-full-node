@@ -1,6 +1,8 @@
 # monero-full-node (x64)
 
-docker image to run a monero full network node with .conf file for configuration
+docker image to run a monero full network node with .conf file.
+
+## The config contains Tor related settings. If you don't use it you have to delet it and if you want to use it you have to change the onion address.
 
 # Usage
 
