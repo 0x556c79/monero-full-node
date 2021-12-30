@@ -1,4 +1,4 @@
-# monero-full-node
+# monero-full-node (x64)
 
 docker image to run a monero full network node with .conf file for configuration
 
