@@ -1,0 +1,52 @@
+name: Check Monero Releases
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily at midnight UTC
+  workflow_dispatch:  # Allow manual triggers
+
+jobs:
+  check-and-update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Get latest Monero release
+      id: get_release
+      run: |
+        RELEASE_INFO=$(curl -s https://api.github.com/repos/monero-project/monero/releases/latest)
+        VERSION=$(echo $RELEASE_INFO | jq -r .tag_name | sed 's/v//')
+        DOWNLOAD_URL=$(echo $RELEASE_INFO | jq -r '.assets[] | select(.name | contains("linux-x64")) | .browser_download_url')
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+        echo "DOWNLOAD_URL=$DOWNLOAD_URL" >> $GITHUB_OUTPUT
+
+    - name: Get SHA256 hash
+      id: get_hash
+      run: |
+        HASHES_URL="https://getmonero.org/downloads/hashes.txt"
+        HASH=$(curl -s $HASHES_URL | grep "monero-linux-x64-v${{ steps.get_release.outputs.VERSION }}.tar.bz2" | awk '{print $1}')
+        echo "HASH=$HASH" >> $GITHUB_OUTPUT
+
+    - name: Update Dockerfile
+      run: |
+        sed -i 's/ENV MONERO_VERSION=.* MONERO_SHA256=.*/ENV MONERO_VERSION=${{ steps.get_release.outputs.VERSION }} MONERO_SHA256=${{ steps.get_hash.outputs.HASH }}/' Dockerfile
+
+    - name: Check for changes
+      id: git-check
+      run: |
+        git diff --exit-code || echo "CHANGES_DETECTED=true" >> $GITHUB_OUTPUT
+
+    - name: Commit changes
+      if: steps.git-check.outputs.CHANGES_DETECTED == 'true'
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git commit -am "Update Monero to version ${{ steps.get_release.outputs.VERSION }}"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # Your existing workflow for building and pushing Docker images will be triggered automatically by this push
