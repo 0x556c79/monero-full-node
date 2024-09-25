@@ -2,7 +2,7 @@
 
 docker image to run a monero full network node with .conf file.
 
-## The config contains Tor related settings. If you don't use it you have to delet it and if you want to use it you have to change the onion address.
+## The config contains Tor related settings. If you don't use it you have to delete it and if you want to use it you have to change the onion address.
 
 # Usage
 
@@ -24,8 +24,8 @@ Automatic way: [v2tec/watchtower](https://github.com/v2tec/watchtower)
 I am supporting this image in my spare time and would be very happy about some donations to keep this going.
 You can support me by donating here:
 
-![Donation](https://docs.google.com/uc?export=download&id=13Z0oUgUKZsC6HCo69BHS5b9mvffT6QRG)
-- XMR: `86fbBwa9XfZAHqMBA7TowSGb5oZqnBgUFJ8Zxh2WchjHWKw6Xx8zpwQiA4fFZVjYWAdE2jCes8WMujZEjYUwDomtVKTfvkb`
+![Donation](https://drive.google.com/uc?export=download&id=1zZ_hz6Sgn7Qy5seu2aiGHu8tdlXEZLMF)
+- XMR: `8AdNpBsX9QaJu9s8nVXsTH2ZKMDrt7dCt5BpZTEsGvDbQDvMtvppTPVAJGd91DKu599uTYg6syN16HiJ3CtvFLLm97KxViL`
 
 - BTC: `bc1q0r86af4aaydwq4rgya40r0xw2r77j0xjcxznnr`
 
