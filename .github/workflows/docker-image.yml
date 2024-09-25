@@ -1,25 +1,24 @@
 name: monero-full-node
-
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 jobs:
-
   build:
-
-    runs-on: ubuntu-20.04
-
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
+    - name: Extract Monero version from Dockerfile
+      run: echo "MONERO_VERSION=$(grep 'ENV MONERO_VERSION=' Dockerfile | cut -d'=' -f3)" >> $GITHUB_ENV
     - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build -t r4p70r/monero-full-node:latest -t r4p70r/monero-full-node:v0.17.3.0 .
+      run: |
+        docker build -t ${{secrets.DOCKER_USER}}/monero-full-node:latest \
+                     -t ${{secrets.DOCKER_USER}}/monero-full-node:v${{ env.MONERO_VERSION }} .
     - name: docker Push
       run: docker push --all-tags ${{secrets.DOCKER_USER}}/monero-full-node
