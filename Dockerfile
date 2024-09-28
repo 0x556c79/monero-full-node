@@ -1,8 +1,7 @@
 # Usage: docker run -tid --restart=always -v /var/data/xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18089:18089 --name=monerod -td r4p70r/monero-full-node
 FROM ubuntu:22.04 AS build
 
-ENV MONERO_VERSION=0.18.3.4 MONERO_SHA256=
-
+ENV MONERO_VERSION=0.18.3.4 MONERO_SHA256=51ba03928d189c1c11b5379cab17dd9ae8d2230056dc05c872d0f8dba4a87f1d
 
 RUN apt-get update && apt-get install -y curl bzip2 wget
 
@@ -29,7 +28,6 @@ COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/.bitmo
 VOLUME /home/monero/.bitmonero
 
 EXPOSE 18080:18080 18089:18089
-
 
 ENTRYPOINT ["./monerod"]
 CMD ["--non-interactive", "--config-file=/home/monero/.bitmonero/bitmonero.conf"]
