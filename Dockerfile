@@ -22,12 +22,13 @@ USER monero
 WORKDIR /home/monero
 
 COPY --chown=monero:monero --from=build /root/monerod /home/monero/monerod
+COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/bitmonero.conf
 COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/.bitmonero/bitmonero.conf
+COPY --chown=monero:monero entrypoint.sh /home/monero/entrypoint.sh
 
 # blockchain location
 VOLUME /home/monero/.bitmonero
 
-EXPOSE 18080:18080 18089:18089
+EXPOSE 18080:18080 18081:18081
 
-ENTRYPOINT ["./monerod"]
-CMD ["--non-interactive", "--config-file=/home/monero/.bitmonero/bitmonero.conf"]
+ENTRYPOINT ["/home/monero/entrypoint.sh"]
