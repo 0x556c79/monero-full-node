@@ -6,9 +6,9 @@ on:
     branches: [ master ]
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Extract Monero version from Dockerfile
       run: echo "MONERO_VERSION=$(grep 'ENV MONERO_VERSION=' Dockerfile | sed -E 's/ENV MONERO_VERSION=([^ ]+).*/\1/')" >> $GITHUB_ENV
     - name: docker login
