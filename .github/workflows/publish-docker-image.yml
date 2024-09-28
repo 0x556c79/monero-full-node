@@ -1,4 +1,5 @@
-name: monero-full-node
+name: Publish Docker Image on Docker hub
+
 on:
   push:
     branches: [ master ]
