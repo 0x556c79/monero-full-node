@@ -2,7 +2,7 @@
 
 docker image to run a monero full network node with .conf file.
 
-## The config contains Tor related settings. If you don't use it you have to delete it and if you want to use it you have to change the onion address.
+## The [config](https://github.com/0x556c79/monero-full-node/blob/master/bitmonero.conf) contains Tor related settings. If you don't use it you have to delete it and if you want to use it you have to change the onion address.
 
 # Usage
 
