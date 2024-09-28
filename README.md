@@ -14,6 +14,8 @@ Manual way:
 docker stop monerod
 docker rm monerod
 docker pull r4p70r/monero-full-node
+or
+docker pull ghcr.io/0x556c79/monero-full-node:latest
 ```
 Then launch using the "how to use" command above
     
