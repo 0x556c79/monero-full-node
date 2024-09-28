@@ -2,8 +2,14 @@ name: monero-full-node
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'Dockerfile'
+      - 'bitmonero.conf'
   pull_request:
     branches: [ master ]
+    paths:
+      - 'Dockerfile'
+      - 'bitmonero.conf'
 jobs:
   build:
     runs-on: ubuntu-22.04
