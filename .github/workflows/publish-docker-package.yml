@@ -73,7 +73,7 @@ jobs:
           tags: |
             type=ref,event=branch
             type=raw,value=latest
-            type=ref,event=MONERO_VERSION
+            type=ref,event=v${{ env.MONERO_VERSION }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
