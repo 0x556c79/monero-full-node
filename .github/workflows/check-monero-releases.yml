@@ -26,7 +26,7 @@ jobs:
     - name: Get SHA256 hash
       id: get_hash
       run: |
-        HASHES_URL="https://getmonero.org/downloads/hashes.txt"
+        HASHES_URL="https://www.getmonero.org/downloads/hashes.txt"
         HASH=$(curl -s $HASHES_URL | grep "monero-linux-x64-v${{ steps.get_release.outputs.VERSION }}.tar.bz2" | awk '{print $1}')
         echo "HASH=$HASH" >> $GITHUB_OUTPUT
 
