@@ -13,6 +13,7 @@ on:
     paths:
       - 'Dockerfile'
       - 'bitmonero.conf'
+  workflow_dispatch:  # Allow manual triggers
 
 env:
   # Use docker.io for Docker Hub if empty
