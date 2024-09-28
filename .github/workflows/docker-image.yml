@@ -10,6 +10,8 @@ on:
     paths:
       - 'Dockerfile'
       - 'bitmonero.conf'
+  workflow_dispatch:  # Allow manual triggers
+  
 jobs:
   build:
     runs-on: ubuntu-22.04
