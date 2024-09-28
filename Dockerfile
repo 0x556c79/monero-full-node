@@ -26,6 +26,8 @@ COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/bitmon
 COPY --chown=monero:monero --from=build /root/bitmonero.conf /home/monero/.bitmonero/bitmonero.conf
 COPY --chown=monero:monero entrypoint.sh /home/monero/entrypoint.sh
 
+RUN chmod +x /home/monero/entrypoint.sh
+
 # blockchain location
 VOLUME /home/monero/.bitmonero
 
