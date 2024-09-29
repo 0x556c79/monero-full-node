@@ -32,7 +32,9 @@ jobs:
 
     - name: Update Dockerfile
       run: |
-        sed -i 's/ENV MONERO_VERSION=.* MONERO_SHA256=.*/ENV MONERO_VERSION=${{ steps.get_release.outputs.VERSION }} MONERO_SHA256=${{ steps.get_hash.outputs.HASH }}/' Dockerfile
+        sed -i 's/ENV MONERO_VERSION=.*/ENV MONERO_VERSION=${{ steps.get_release.outputs.VERSION }}/' Dockerfile
+        sed -i 's/ENV MONERO_SHA256=.*/ENV MONERO_SHA256=${{ steps.get_hash.outputs.HASH }}/' Dockerfile
+
 
     - name: Check for changes
       id: git-check
