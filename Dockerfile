@@ -2,10 +2,10 @@
 FROM ubuntu:22.04 AS build
 
 ENV MONERO_VERSION=0.18.3.4
-ENV MONERO_HASH 51ba03928d189c1c11b5379cab17dd9ae8d2230056dc05c872d0f8dba4a87f1d
-ENV MONERO_DL_URL https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.tar.bz2
-ENV MONERO_DL_FILE monero-v$MONERO_VERSION.tar.bz2
-ENV MONERO_SUMS_FILE sha256sums
+ENV MONERO_HASH=51ba03928d189c1c11b5379cab17dd9ae8d2230056dc05c872d0f8dba4a87f1d
+ENV MONERO_DL_URL=https://downloads.getmonero.org/cli/monero-linux-x64-v$MONERO_VERSION.tar.bz2
+ENV MONERO_DL_FILE=monero-v$MONERO_VERSION.tar.bz2
+ENV MONERO_SUMS_FILE=sha256sums
 
 WORKDIR /opt/monero
 
