@@ -7,7 +7,9 @@ docker image to run a monero full network node with .conf file.
 # Usage
 
 `docker run -tid --restart=always -v xmrchain:/opt/monero/data -p 18080:18080 -p 18081:18081 --name=monerod r4p70r/monero-full-node`
+
 or
+
 `docker run -tid --restart=always -v xmrchain:/opt/monero/data -p 18080:18080 -p 18081:18081 --name=monerod ghcr.io/0x556c79/monero-full-node:latest`
 
 ## Updates
