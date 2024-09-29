@@ -8,11 +8,13 @@ on:
     paths:
       - 'Dockerfile'
       - 'bitmonero.conf'
+      - 'entrypoint.sh'
   pull_request:
     branches: [ "master" ]
     paths:
       - 'Dockerfile'
       - 'bitmonero.conf'
+      - 'entrypoint.sh'
   workflow_dispatch:  # Allow manual triggers
 
 env:
