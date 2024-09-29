@@ -1,4 +1,4 @@
-# Usage: docker run -tid --restart=always -v /var/data/xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18089:18089 --name=monerod -td r4p70r/monero-full-node
+# Usage: docker run -tid --restart=always -v xmrchain:/opt/monero/data -p 18080:18080 -p 18081:18081 --name=monerod -td r4p70r/monero-full-node
 FROM ubuntu:22.04 AS build
 
 ENV MONERO_VERSION=0.18.3.4
@@ -36,14 +36,14 @@ RUN wget https://raw.githubusercontent.com/0x556c79/monero-full-node/master/bitm
 # Copy to fresh Ubuntu image to reduce size
 FROM ubuntu:22.04
 
-RUN mkdir -p /opt/monero/data/.bitmonero
+RUN mkdir -p /opt/monero/data
 COPY --from=build /usr/local/bin/monerod /usr/local/bin/monerod
-COPY --from=build /opt/monero/bitmonero.conf /opt/monero/.bitmonero/bitmonero.conf
+COPY --from=build /opt/monero/bitmonero.conf /opt/monero/data/bitmonero.conf
 COPY entrypoint.sh /opt/monero/entrypoint.sh
-RUN chmod +x /home/monero/entrypoint.sh
+RUN chmod +x /opt/monero/entrypoint.sh
 
 # blockchain location
-VOLUME /opt/monero/.bitmonero
+VOLUME /opt/monero/data
 
 EXPOSE 18080
 EXPOSE 18081
