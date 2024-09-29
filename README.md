@@ -1,4 +1,4 @@
-# monero-full-node (x64) https://github.com/0x556c79/monero-full-node/actions/workflows/publish-docker-package.yml
+# monero-full-node (x64) [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/0x556c79/monero-full-node/publish-docker-package.yml?branch=master)](https://github.com/0x556c79/monero-full-node/actions/workflows/publish-docker-package.yml) [![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/0x556c79/monero-full-node/publish-docker-image.yml?branch=master)](https://github.com/0x556c79/monero-full-node/actions/workflows/publish-docker-image.yml) [![Docker Pulls](https://badgen.net/docker/pulls/r4p70r/monero-full-node?icon=docker&label=pulls)](https://hub.docker.com/r/r4p70r/monero-full-node/) [![Docker Stars](https://badgen.net/docker/stars/r4p70r/monero-full-node?icon=docker&label=stars)](https://hub.docker.com/r/r4p70r/monero-full-node/)
 
 docker image to run a monero full network node with .conf file.
 
@@ -6,7 +6,9 @@ docker image to run a monero full network node with .conf file.
 
 # Usage
 
-`docker run -tid --restart=always -v xmrchain:/home/monero/.bitmonero -p 18080:18080 -p 18089:18089 --name=monerod r4p70r/monero-full-node`
+`docker run -tid --restart=always -v xmrchain:/opt/monero/data -p 18080:18080 -p 18081:18081 --name=monerod r4p70r/monero-full-node`
+or
+`docker run -tid --restart=always -v xmrchain:/opt/monero/data -p 18080:18080 -p 18081:18081 --name=monerod ghcr.io/0x556c79/monero-full-node:latest`
 
 ## Updates
 Manual way:
