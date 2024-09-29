@@ -38,6 +38,7 @@ FROM ubuntu:22.04
 
 RUN mkdir -p /opt/monero/data
 COPY --from=build /usr/local/bin/monerod /usr/local/bin/monerod
+COPY --from=build /opt/monero/bitmonero.conf /opt/monero/bitmonero.conf
 COPY --from=build /opt/monero/bitmonero.conf /opt/monero/data/bitmonero.conf
 COPY entrypoint.sh /opt/monero/entrypoint.sh
 RUN chmod +x /opt/monero/entrypoint.sh
